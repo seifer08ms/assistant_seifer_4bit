@@ -17,8 +17,8 @@ from transformers.utils import logging
 from tools.transformers.interface import GenerationConfig, generate_interactive
 from openxlab.model import download
 
-download(model_repo='seifer08ms/seifer_assistant_model_4bit', 
-        output='hf_merge')
+#download(model_repo='seifer08ms/seifer_assistant_model_4bit', 
+#        output='hf_merge')
 
 
 logger = logging.get_logger(__name__)
@@ -32,12 +32,14 @@ def on_btn_click():
 def load_model():
     model = (
         #AutoModelForCausalLM.from_pretrained("internlm/internlm-chat-7b", trust_remote_code=True)
-        AutoModelForCausalLM.from_pretrained("hf_merge", trust_remote_code=True)
+        #AutoModelForCausalLM.from_pretrained("hf_merge", trust_remote_code=True)
+        AutoModelForCausalLM.from_pretrained("/root/quant/quant_output_awq", trust_remote_code=True)
         .to(torch.bfloat16)
         .cuda()
     )
     #tokenizer = AutoTokenizer.from_pretrained("internlm/internlm-chat-7b", trust_remote_code=True)
-    tokenizer = AutoTokenizer.from_pretrained("hf_merge", trust_remote_code=True)
+    #tokenizer = AutoTokenizer.from_pretrained("hf_merge", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("/root/quant/quant_output_awq", trust_remote_code=True)
     return model, tokenizer
 
 

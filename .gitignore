@@ -8,6 +8,7 @@ __pycache__/
 
 # merged_weights
 hf_merge/
+seifer___*/
 
 # Distribution / packaging
 .Python

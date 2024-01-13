@@ -1,2 +1,4 @@
 import os
-os.system('streamlit run web_demo.py --server.address=0.0.0.0 --server.port 7860')
+from openxlab.dataset import get
+get(dataset_repo='seifer08ms/ass-4bit', target_path='./') 
+os.system('./start.sh')
