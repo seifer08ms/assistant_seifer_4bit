@@ -1,6 +1,6 @@
-gradio==3.50.*
-streamlit==1.25.0
+openxlab
+gradio==4.4.0
 transformers==4.34.0
 sentencepiece==0.1.99
 torch
-lmdeploy
+lmdeploy==v0.1.0
